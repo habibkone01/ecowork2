@@ -14,4 +14,19 @@ class Espace extends Model
         'description',
         'tarif_journalier'
     ];
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function equipements()
+    {
+        return $this->belongsToMany(Equipement::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
