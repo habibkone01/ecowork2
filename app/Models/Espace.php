@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Espace extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'nom',
         'surface',
         'type',
         'capacite',
         'description',
-        'tarif_journalier'
+        'tarif_journalier',
     ];
 
     public function reservations()
@@ -22,7 +25,7 @@ class Espace extends Model
 
     public function equipements()
     {
-        return $this->belongsToMany(Equipement::class);
+        return $this->belongsToMany(Equipement::class, 'espace_equipement');
     }
 
     public function images()
