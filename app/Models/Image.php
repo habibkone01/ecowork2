@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable =[
+    use HasFactory;
+
+    protected $fillable = [
         'url',
-        'espace_id'
+        'espace_id',
     ];
 
-    public function espaces()
+    public function espace()
     {
         return $this->belongsTo(Espace::class);
     }
