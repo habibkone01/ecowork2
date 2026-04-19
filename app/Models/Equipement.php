@@ -9,4 +9,9 @@ class Equipement extends Model
     protected $fillable =[
         'nom'
     ];
+
+    public function espaces()
+    {
+        return $this->belongsToMany(Espace::class);
+    }
 }

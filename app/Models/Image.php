@@ -10,4 +10,9 @@ class Image extends Model
         'url',
         'espace_id'
     ];
+
+    public function espaces()
+    {
+        return $this->belongsTo(Espace::class);
+    }
 }
